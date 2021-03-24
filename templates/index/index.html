@@ -1,9 +1,11 @@
-<div class="conteiner">
-		{% with ''|center:100 as range %}
-			{% for _ in range %}
-			     <h2>{{ 'Hello' }}</h2>
-			{% endfor %}
-		{% endwith %}
-</div>
+{% extends "base.html" %}
 
-<button id="create-button">+</button>
+{% block content %}
+	<div class="conteiner">
+			{% with ''|center:100 as range %}
+				{% for _ in range %}
+				     <h2>{{ 'Hello' }}</h2>
+				{% endfor %}
+			{% endwith %}
+	</div>
+{% endblock %}

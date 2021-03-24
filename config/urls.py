@@ -27,5 +27,5 @@ urlpatterns = [
 
     path('api/', include('core.urls')),
 
-    path('', TemplateView.as_view(template_name='base.html'), name='index'),
+    path('', TemplateView.as_view(template_name='index/index.html'), name='index'),
 ]
