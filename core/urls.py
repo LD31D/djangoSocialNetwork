@@ -5,7 +5,6 @@ from . import views
 
 router = DefaultRouter()
 router.register('posts', views.PostViewSet)
-# router.register(r'users', views.UserViewSet)
 
 
 urlpatterns = [
