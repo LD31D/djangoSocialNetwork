@@ -19,3 +19,14 @@ class Post(models.Model):
 	def __str__(self):
 		return self.created.strftime('%Y-%m-%d %H:%M:%S') + " | " \
 			+ " ".join(self.body.split()[:10]) + " ..."
+
+	@property
+	def total_likes(self):
+		return self.likes.count()
+
+
+class Like(models.Model):
+	objects = models.Manager()
+
+	user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
+	post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')

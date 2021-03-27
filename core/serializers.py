@@ -8,7 +8,7 @@ class PostSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Post
-		fields = ('id', 'body', 'created', 'author', 'creator')
+		fields = ('id', 'body', 'created', 'author', 'creator', 'total_likes')
 
 		extra_kwargs = {
 			'author': {'write_only': True, 'required': False},
