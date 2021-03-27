@@ -4,17 +4,17 @@ from .models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-	creator = serializers.SerializerMethodField('get_creator', read_only=True)
+	author = serializers.SerializerMethodField('get_author', read_only=True)
 
 	class Meta:
 		model = Post
-		fields = ('id', 'body', 'created', 'author', 'creator', 'total_likes')
+		fields = ('id', 'body', 'created', 'author', 'total_likes')
 
 		extra_kwargs = {
-			'author': {'write_only': True, 'required': False},
+			'author': {'required': False},
 		}
 
-	def get_creator(self, obj):
+	def get_author(self, obj):
 		return {
 				'id': obj.author.id,
 				'username': obj.author.username,
