@@ -4,7 +4,6 @@ from .models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
-
 	creator = serializers.SerializerMethodField('get_creator', read_only=True)
 
 	class Meta:
@@ -12,7 +11,7 @@ class PostSerializer(serializers.ModelSerializer):
 		fields = ('id', 'body', 'created', 'author', 'creator')
 
 		extra_kwargs = {
-		    'author': {'write_only': True},
+			'author': {'write_only': True, 'required': False},
 		}
 
 	def get_creator(self, obj):
@@ -21,3 +20,7 @@ class PostSerializer(serializers.ModelSerializer):
 				'username': obj.author.username,
 				'is_active': obj.author.is_active
 			}
+
+	def create(self, validated_data):
+		validated_data['author'] = self.context['request'].user
+		return super().create(validated_data)
