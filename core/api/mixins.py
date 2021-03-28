@@ -1,7 +1,7 @@
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from . import services
+from .. import services
 
 
 class LikedMixin:

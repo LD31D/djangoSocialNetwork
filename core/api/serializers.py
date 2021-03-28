@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from . import services
-from .models import Post
+from .. import services
+from ..models import Post
 
 
 class PostSerializer(serializers.ModelSerializer):
