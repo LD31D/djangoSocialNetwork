@@ -20,6 +20,16 @@
 
 > python main.py
 
+---
+
+### URLs
+
+* /api/auth/users/ - For user creating (POST)
+* /api/auth/jwt/create/ - For JWT creating (POST)
+* /api/posts/ - For view all posts (GET) or post creating (POST)
+* /api/posts/<id>/like/ - For post liking (POST)
+* /api/posts/<id>/unlike/ - For post unliking (POST)
+
 
 ### P.S
 All bugs found in the program are features and are provided by the developer !!! 
